@@ -1,7 +1,7 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
 <!-- Thu, 22 Nov 200 Generated from KCHR: "Logitech Swedish" -->
-<!--Last edited by Ukelele version 346 on 2021-11-09 at 21:45 (CET)-->
+<!--Last edited by Ukelele version 346 on 2021-11-09 at 22:12 (CET)-->
 <keyboard group="0" id="16383" name="Andrei Swedish" maxout="1">
     <layouts>
         <layout first="0" last="0" mapSet="ANSI" modifiers="commonModifiers"/>
