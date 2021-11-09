@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE keyboard PUBLIC "" "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
+<?xml version="1.1" encoding="UTF-8"?>
+<!DOCTYPE keyboard SYSTEM "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
 <!-- Thu, 22 Nov 200 Generated from KCHR: "Logitech Swedish" -->
-<!--Last edited by Ukelele version 2.1.6 on 2011-07-04 at 18:55 (GMT+02:00)-->
+<!--Last edited by Ukelele version 346 on 2021-11-09 at 21:45 (CET)-->
 <keyboard group="0" id="16383" name="Andrei Swedish" maxout="1">
     <layouts>
-        <layout first="0" last="0" modifiers="commonModifiers" mapSet="ANSI"/>
+        <layout first="0" last="0" mapSet="ANSI" modifiers="commonModifiers"/>
     </layouts>
     <modifierMap id="commonModifiers" defaultIndex="0">
         <keyMapSelect mapIndex="0">
@@ -172,6 +172,7 @@
             <key code="8" output="C"/>
             <key code="9" output="V"/>
             <!-- gap, 10 -->
+            <key code="10" output="°"/>
             <key code="11" output="B"/>
             <key code="12" output="Q"/>
             <key code="13" output="W"/>
@@ -183,6 +184,7 @@
             <key code="19" output="&#x0022;"/>
             <key code="20" output="#"/>
             <!-- gap, 21 -->
+            <key code="21" output="€"/>
             <key code="22" output="&#x0026;"/>
             <key code="23" output="%"/>
             <key code="24" action="`"/>
@@ -329,7 +331,7 @@
             <key code="47" output="."/>
             <key code="48" output="&#x0009;"/>
             <key code="49" action=" "/>
-            <key code="50" output="§"/>
+            <key code="50" output="&#x003C;"/>
             <key code="51" output="&#x0008;"/>
             <key code="52" output="&#x0003;"/>
             <key code="53" output="&#x001B;"/>
