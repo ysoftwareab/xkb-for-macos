@@ -1,4 +1,6 @@
-# PC Keyboard Layouts for MacOS (xkb based)
+# xkb-for-macos
+
+PC keyboard layouts for MacOS straight from X11 xkb.
 
 Thanks to [klfc](https://github.com/39aldo39/klfc),
 we converted all keyboard layouts from an Ubuntu 20.04 distribution (X11 xkb) to MacOS (keylayout).
