@@ -36,6 +36,9 @@ Similar issues surface in other languages as you can see in Related Work.
 
 What is different from other initiatives is that this is not a manual conversion.
 
+For a visual diff, please consult the original MacOS keyboard layout [se.pdf](se.pdf)
+and the PC keyboard layout [y-xkb-se.pdf](y-xkb-se.pdf), as exported by [Ukelele](https://software.sil.org/ukelele/).
+
 
 ## Related Work
 
