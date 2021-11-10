@@ -64,6 +64,12 @@ and the PC keyboard layout [y-xkb-se.pdf](y-xkb-se.pdf), as exported by [Ukelele
 * https://github.com/zaki/mac-hun-keyboard
 
 
+See also
+
+* https://github.com/motform/colemak-se
+* https://github.com/AlbertVeli/Swedish-Dvorak--svdvorak--for-OSX
+
+
 ## License
 
 [UNLICENSE](UNLICENSE)
