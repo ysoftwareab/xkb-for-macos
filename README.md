@@ -10,9 +10,19 @@ Outcome: type on your Mac the same way you would type on a PC.
 
 ## Installation
 
-Copy `y-xkb-<language>.*` to your `~/Library/Keyboard Layouts` folder,
-or `/Library/Keyboard Layouts` to install for all users,
-and then activate the `ysoftwareab xkb <language>`
+You can either do the following in `/Library/Keyboard Layouts` for all users (recommended)
+or `~/Library/Keyboard Layouts` only for your own user.
+
+The preferred way is to clone this git repository
+
+```
+sudo rm -rf /Library/Keyboard\ Layouts
+sudo git clone https://github.com/ysoftwareab/xkb-for-macos.git /Library/Keyboard\ Layouts
+```
+
+but you can also copy individual `y-xkb-<language>.*` files.
+
+You can then activate the `ysoftwareab xkb <language>`
 via `System Preferences` - `Keyboard` - `Keyboard (tab)` - `Input Sources`.
 
 
