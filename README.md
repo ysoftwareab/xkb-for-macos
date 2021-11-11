@@ -69,6 +69,7 @@ See also
 * https://github.com/motform/colemak-se
 * https://github.com/AlbertVeli/Swedish-Dvorak--svdvorak--for-OSX
 * https://github.com/mw8/white_keyboard_layout
+* https://johanegustafsson.net/projects/swerty/
 
 
 ## License
