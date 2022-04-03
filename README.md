@@ -25,6 +25,14 @@ but you can also copy individual `y-xkb-<language>.*` files.
 You can then activate the `ysoftwareab xkb <language>`
 via `System Preferences` - `Keyboard` - `Keyboard (tab)` - `Input Sources`.
 
+**NOTE** If you are having issues activating a keyboard,
+try the following and restart ([source](https://apple.stackexchange.com/q/21691/31369)).
+
+```
+sudo rm /System/Library/Caches/com.apple.IntlDataCache*
+sudo find /var/ -name "*IntlDataCache*" -exec rm {} \;
+```
+
 
 ## But why?
 
