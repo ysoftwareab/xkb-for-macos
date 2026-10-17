@@ -8,10 +8,6 @@ T=.opencode-icons-tmp
 mkdir -p "$T"
 trap 'rm -rf "$T" XX.iconset values.log' EXIT
 
-flags() {
-}
-flags
-
 for lay in y-xkb-*.keylayout; do
   cc=${lay:6:2}
   f=$T/$cc.padded.png
