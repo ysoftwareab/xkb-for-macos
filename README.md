@@ -31,7 +31,7 @@ sudo cp y-xkb-se.keylayout /Library/Keyboard\ Layouts/
 ```
 
 You can then activate the `ysoftwareab xkb <language>`
-via `System Preferences` - `Keyboard` - `Keyboard (tab)` - `Input Sources`.
+via `System Settings` - `Keyboard` - `Keyboard (tab)` - `Input Sources`. (macOS 13 and later; older macOS still calls this `System Preferences`.)
 
 **NOTE** If you are having issues activating a keyboard,
 try the following and restart ([source](https://apple.stackexchange.com/q/21691/31369)).
