@@ -5,7 +5,7 @@ XKB_DATA_URL=http://ports.ubuntu.com/pool/main/x/xkeyboard-config/${XKB_DATA_DEB
 all: ${XKB_DATA_DEB}
 	ar -x ${XKB_DATA_DEB} ./data.tar.xz
 	tar xvf data.tar.xz
-	rm -rf data.tar.xz tmp Makefile.log *.keylayout
+	rm -rf data.tar.xz tmp Makefile.log y-xkb-*.keylayout
 	( id=0; \
 		for f in usr/share/X11/xkb/symbols/??; do \
 		for g in $$(cat $$f | grep "^xkb_symbols" | sed "s/^xkb_symbols \+\"\([^\"]\+\)\".*/\1/"); do \
