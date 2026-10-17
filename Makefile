@@ -1,4 +1,4 @@
-XKB_VSN=2.29-2
+XKB_VSN=2.42-1ubuntu1
 XKB_DATA_DEB=xkb-data_${XKB_VSN}_all.deb
 XKB_DATA_URL=http://ports.ubuntu.com/pool/main/x/xkeyboard-config/${XKB_DATA_DEB}
 
