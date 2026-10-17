@@ -23,8 +23,7 @@ for lay in y-xkb-*.keylayout; do
   icns=$T/$cc.icns
   if [[ ! -f $icns ]]; then
     [[ -f $T/$cc.png ]] || curl -fsS "https://flagcdn.com/w640/$cc.png" -o "$T/$cc.png"
-    cp "$T/$cc.png" "$f"
-    sips -p 640 640 --padColor FFFFFF "$f" >/dev/null
+    magick "$T/$cc.png" -background none -gravity center -extent 640x640 "$f"
     rm -rf XX.iconset && mkdir XX.iconset
     sips -z 16 16 "$f" --out XX.iconset/icon_16x16.png >/dev/null
     sips -z 32 32 "$f" --out XX.iconset/icon_16x16@2x.png >/dev/null
