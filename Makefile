@@ -28,3 +28,6 @@ all: ${XKB_DATA_DEB}
 
 ${XKB_DATA_DEB}:
 	curl -O ${XKB_DATA_URL}
+
+clean:
+	rm -rf usr/ tmp *.deb Makefile.log *.rej *.orig \#*
