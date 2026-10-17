@@ -31,6 +31,12 @@ If you want to avoid the nuke-and-reinstall, copy the layouts you want instead:
 sudo cp y-xkb-se.keylayout /Library/Keyboard\ Layouts/
 ```
 
+Note that the numeric `id` of each layout is only stable within one
+`xkb-data` release (`XKB_VSN` in the Makefile). macOS picks duplicates by
+filename so upgrades replace cleanly — but a few variants drop or rename
+across releases; after an update, prefer to reinstall rather than assume
+ids or file names are still there.
+
 You can then activate the `ysoftwareab xkb <language>`
 via `System Settings` - `Keyboard` - `Keyboard (tab)` - `Input Sources`. (macOS 13 and later; older macOS still calls this `System Preferences`.)
 
