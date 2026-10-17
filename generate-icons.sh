@@ -9,10 +9,6 @@ mkdir -p "$T"
 trap 'rm -rf "$T" XX.iconset values.log' EXIT
 
 flags() {
-  # preserve Andrei's hand-crafted icons pending the new flag set
-  if [[ -f y-xkb-ro.icns ]]; then mv y-xkb-ro.icns old/y-xkb-ro-Andrei.icns; fi
-  if [[ -f y-xkb-se.icns ]]; then mv y-xkb-se.icns old/y-xkb-se-Andrei.icns; fi
-  :
 }
 flags
 
