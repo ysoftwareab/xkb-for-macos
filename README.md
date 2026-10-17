@@ -15,12 +15,20 @@ or `~/Library/Keyboard Layouts` only for your own user.
 
 The preferred way is to clone this git repository
 
+> **WARNING** This wipes everything already in `/Library/Keyboard Layouts`,
+> including any layout files you added yourself and did not check in here.
+> Back them up first if you want to keep them.
+
 ```
 sudo rm -rf /Library/Keyboard\ Layouts
 sudo git clone https://github.com/ysoftwareab/xkb-for-macos.git /Library/Keyboard\ Layouts
 ```
 
-but you can also copy individual `y-xkb-<language>.*` files.
+If you want to avoid the nuke-and-reinstall, copy the layouts you want instead:
+
+```
+sudo cp y-xkb-se.keylayout /Library/Keyboard\ Layouts/
+```
 
 You can then activate the `ysoftwareab xkb <language>`
 via `System Preferences` - `Keyboard` - `Keyboard (tab)` - `Input Sources`.
