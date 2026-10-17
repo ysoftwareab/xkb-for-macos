@@ -31,11 +31,10 @@ If you want to avoid the nuke-and-reinstall, copy the layouts you want instead:
 sudo cp y-xkb-se.keylayout /Library/Keyboard\ Layouts/
 ```
 
-Note that the numeric `id` of each layout is only stable within one
-`xkb-data` release (`XKB_VSN` in the Makefile). macOS picks duplicates by
-filename so upgrades replace cleanly — but a few variants drop or rename
-across releases; after an update, prefer to reinstall rather than assume
-ids or file names are still there.
+Note that the numeric `id` of each layout is hashed deterministically from
+its layout name (`cksum`), so IDs remain stable across `xkb-data` releases
+(`XKB_VSN` in the Makefile) as long as upstream does not rename or drop the
+variant.
 
 You can then activate the `ysoftwareab xkb <language>`
 via `System Settings` - `Keyboard` - `Keyboard (tab)` - `Input Sources`. (macOS 13 and later; older macOS still calls this `System Preferences`.)
@@ -109,9 +108,9 @@ your existing input source for it goes stale and must be replaced:
 2. Remove the old input source from `System Settings`, add the new one.
 3. Also see the cache-reset NOTE above if the picker still misbehaves.
 
-The `<keyboard id=N>` in each `.keylayout` is regenerated per release and
-is only meaningful relative to the same xkb-data version. Duplicates or
-missing flags after an upgrade are usually the cache (see NOTE above), not
+The `<keyboard id="-N">` in each `.keylayout` is hashed deterministically from
+the layout name so unchanged variants keep their ID across upgrades. Duplicates
+or missing flags after an upgrade are usually the cache (see NOTE above), not
 the id.
 
 ## Related Work
