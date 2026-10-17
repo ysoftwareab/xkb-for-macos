@@ -15,11 +15,13 @@ all: ${XKB_DATA_DEB}
 			[[ "$$g" != "basic" ]] || g_suffix=; \
 			echo y-xkb-$${f_basename}$${g_suffix}.keylayout; \
 			mv tmp/$${f_basename}$${g_suffix}.keylayout y-xkb-$${f_basename}$${g_suffix}.keylayout; \
-			sed -i "s/name=\"[^\"]\+\"/name=\"ysoftwareab xkb $${f_basename}$${g_suffix}\"/" y-xkb-$${f_basename}$${g_suffix}.keylayout; \
+			sed -i "s/name=\"[^\"]\+\"/name=\"ysoftwareab xkb $${f_basename}$${g_suffix} id=$${id}\"/" y-xkb-$${f_basename}$${g_suffix}.keylayout; \
 			id=$$((id+1)); \
 			sed -i "s/id=\"-1337\"/id=\"$${id}\"/" y-xkb-$${f_basename}$${g_suffix}.keylayout; \
 		done; \
 	done ) 2>>Makefile.log
+	patch --forward y-xkb-ro.keylayout < macos-emacs-bindings-ro-se.patch
+	patch --forward y-xkb-se.keylayout < macos-emacs-bindings-ro-se.patch
 	rm -rf tmp
 
 ${XKB_DATA_DEB}:
