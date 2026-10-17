@@ -9,13 +9,18 @@ mkdir -p "$T"
 trap 'rm -rf "$T" XX.iconset values.log' EXIT
 
 for lay in y-xkb-*.keylayout; do
-  cc=${lay:6:2}
+  stem=${lay#y-xkb-}
+  stem=${stem%.keylayout}
+  cc=${stem%%-*}
+  case $cc in
+    pc|epo) continue ;;
+    jv) cc=id ;;
+    mao) cc=nz ;;
+    ara) cc=eg ;;
+    latam) cc=es ;;
+  esac
   f=$T/$cc.padded.png
   icns=$T/$cc.icns
-  case $cc in
-    pc) continue ;;
-    jv) cc=id ;;
-  esac
   if [[ ! -f $icns ]]; then
     [[ -f $T/$cc.png ]] || curl -fsS "https://flagcdn.com/w640/$cc.png" -o "$T/$cc.png"
     cp "$T/$cc.png" "$f"

@@ -8,10 +8,11 @@ all: ${XKB_DATA_DEB}
 	tar --zstd -xf data.tar.zst 2>/dev/null || tar xf data.tar.zst
 	rm -f debian-binary control.tar.zst data.tar.zst
 	( used_ids=(); \
-		for f in usr/share/X11/xkb/symbols/??; do \
+		for f in usr/share/X11/xkb/symbols/?? usr/share/X11/xkb/symbols/{ara,epo,latam,mao}; do \
+		f_basename=$$(basename $$f); \
+		[[ "$$f_basename" != "pc" ]] || continue; \
 		for g in $$(cat $$f | grep "^xkb_symbols" | sed "s/^xkb_symbols \+\"\([^\"]\+\)\".*/\1/"); do \
 			./klfc --from-xkb "$$f($$g)" --keylayout ./tmp; \
-			f_basename=$$(basename $$f); \
 			g_suffix="-$$g"; \
 			[[ "$$g" != "basic" ]] || g_suffix=; \
 			h=$$(printf '%s' "$${f_basename}$${g_suffix}" | cksum | cut -d' ' -f1); \
