@@ -28,6 +28,8 @@ for lay in y-xkb-*.keylayout; do
     rm -rf XX.iconset && mkdir XX.iconset
     sips -z 16 16 "$f" --out XX.iconset/icon_16x16.png >/dev/null
     sips -z 32 32 "$f" --out XX.iconset/icon_16x16@2x.png >/dev/null
+    sips -z 32 32 "$f" --out XX.iconset/icon_32x32.png >/dev/null
+    sips -z 64 64 "$f" --out XX.iconset/icon_32x32@2x.png >/dev/null
     sips -z 128 128 "$f" --out XX.iconset/icon_128x128.png >/dev/null
     iconutil -c icns XX.iconset -o "$icns"
   fi
