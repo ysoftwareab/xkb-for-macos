@@ -20,8 +20,9 @@ all: ${XKB_DATA_DEB}
 			id=$$((id+1)); \
 		done; \
 	done ) 2>>Makefile.log
-	patch --forward y-xkb-ro.keylayout < macos-emacs-bindings-ro-se.patch
-	patch --forward y-xkb-se.keylayout < macos-emacs-bindings-ro-se.patch
+	patch --forward y-xkb-ro.keylayout < macos-emacs-bindings-ro.patch
+	patch --forward y-xkb-se.keylayout < macos-emacs-bindings-se.patch
+	rm -f macos-emacs-bindings-*.rej
 	rm -rf tmp
 
 ${XKB_DATA_DEB}:
