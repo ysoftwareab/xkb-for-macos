@@ -3,9 +3,10 @@ XKB_DATA_DEB=xkb-data_${XKB_VSN}_all.deb
 XKB_DATA_URL=http://ports.ubuntu.com/pool/main/x/xkeyboard-config/${XKB_DATA_DEB}
 
 all: ${XKB_DATA_DEB}
-	ar -x ${XKB_DATA_DEB} ./data.tar.xz
-	tar xvf data.tar.xz
-	rm -rf data.tar.xz tmp Makefile.log y-xkb-*.keylayout
+	rm -rf data.tar.zst tmp Makefile.log y-xkb-*.keylayout
+	ar -x ${XKB_DATA_DEB}
+	tar --zstd -xf data.tar.zst 2>/dev/null || tar xf data.tar.zst
+	rm -f debian-binary control.tar.zst data.tar.zst
 	( id=1; \
 		for f in usr/share/X11/xkb/symbols/??; do \
 		for g in $$(cat $$f | grep "^xkb_symbols" | sed "s/^xkb_symbols \+\"\([^\"]\+\)\".*/\1/"); do \
