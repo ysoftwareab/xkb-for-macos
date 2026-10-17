@@ -2,9 +2,39 @@ diff --git a/y-xkb-ro.keylayout b/y-xkb-ro.keylayout
 index 41d1811..4f41483 100644
 --- a/y-xkb-ro.keylayout
 +++ b/y-xkb-ro.keylayout
-@@ -33,6 +33,10 @@
+@@ -11,28 +11,32 @@
+   <modifierMap id="defaultModifierMap" defaultIndex="0">
+     <keyMapSelect mapIndex="0">
+-      <modifier keys="anyControl? command?" />
++      <modifier keys="command?" />
+     </keyMapSelect>
+     <keyMapSelect mapIndex="1">
+-      <modifier keys="anyShift anyControl? command?" />
++      <modifier keys="anyShift command?" />
+     </keyMapSelect>
+     <keyMapSelect mapIndex="2">
+-      <modifier keys="caps anyControl? command?" />
++      <modifier keys="caps command?" />
+     </keyMapSelect>
+     <keyMapSelect mapIndex="3">
+-      <modifier keys="caps anyShift anyControl? command?" />
++      <modifier keys="caps anyShift command?" />
+     </keyMapSelect>
+     <keyMapSelect mapIndex="4">
+-      <modifier keys="anyOption anyControl? command?" />
++      <modifier keys="anyOption command?" />
+     </keyMapSelect>
+     <keyMapSelect mapIndex="5">
+-      <modifier keys="caps anyOption anyControl? command?" />
++      <modifier keys="caps anyOption command?" />
+     </keyMapSelect>
+     <keyMapSelect mapIndex="6">
+-      <modifier keys="anyShift anyOption anyControl? command?" />
++      <modifier keys="anyShift anyOption command?" />
+     </keyMapSelect>
      <keyMapSelect mapIndex="7">
-       <modifier keys="caps anyShift anyOption anyControl? command?" />
+-      <modifier keys="caps anyShift anyOption anyControl? command?" />
++      <modifier keys="caps anyShift anyOption command?" />
      </keyMapSelect>
 +    <keyMapSelect mapIndex="8">
 +      <modifier keys="anyShift? caps? anyOption? anyControl" />
@@ -13,8 +43,8 @@ index 41d1811..4f41483 100644
    </modifierMap>
    <keyMapSet id="defaultKeyMapSet">
      <keyMap index="0">
-@@ -819,6 +823,104 @@
-       <key code="65" output="." />
+@@ -813,6 +817,104 @@
+       <key code="82" output="0" />
        <key code="81" output="=" />
      </keyMap>
 +    <keyMap index="8">
