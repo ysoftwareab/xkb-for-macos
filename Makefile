@@ -3,7 +3,7 @@ XKB_DATA_DEB=xkb-data_${XKB_VSN}_all.deb
 XKB_DATA_URL=http://ports.ubuntu.com/pool/main/x/xkeyboard-config/${XKB_DATA_DEB}
 
 all: ${XKB_DATA_DEB}
-	rm -rf data.tar.zst tmp Makefile.log y-xkb-*.keylayout
+	rm -rf data.tar.zst tmp Makefile.log y-xkb-*.keylayout y-xkb-*.icns
 	ar -x ${XKB_DATA_DEB}
 	tar --zstd -xf data.tar.zst 2>/dev/null || tar xf data.tar.zst
 	rm -f debian-binary control.tar.zst data.tar.zst
@@ -29,6 +29,10 @@ all: ${XKB_DATA_DEB}
 	patch --forward y-xkb-se.keylayout < macos-emacs-bindings-se.patch
 	rm -f macos-emacs-bindings-*.rej
 	rm -rf tmp
+	./generate-icons.sh
+
+icons:
+	./generate-icons.sh
 
 ${XKB_DATA_DEB}:
 	curl -O ${XKB_DATA_URL}
