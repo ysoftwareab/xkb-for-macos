@@ -3,7 +3,8 @@
 PC keyboard layouts for MacOS straight from X11 xkb.
 
 Thanks to [klfc](https://github.com/39aldo39/klfc),
-we converted all keyboard layouts from an Ubuntu 20.04 distribution (X11 xkb) to MacOS (keylayout).
+we converted all keyboard layouts from an Ubuntu release distribution (currently 24.04, xkb-data)
+to MacOS (keylayout).
 
 Outcome: type on your Mac the same way you would type on a PC.
 
