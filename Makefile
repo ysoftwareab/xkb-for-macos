@@ -6,7 +6,7 @@ all: ${XKB_DATA_DEB}
 	ar -x ${XKB_DATA_DEB} ./data.tar.xz
 	tar xvf data.tar.xz
 	rm -rf data.tar.xz tmp Makefile.log y-xkb-*.keylayout
-	( id=0; \
+	( id=1; \
 		for f in usr/share/X11/xkb/symbols/??; do \
 		for g in $$(cat $$f | grep "^xkb_symbols" | sed "s/^xkb_symbols \+\"\([^\"]\+\)\".*/\1/"); do \
 			./klfc --from-xkb "$$f($$g)" --keylayout ./tmp; \
@@ -15,9 +15,9 @@ all: ${XKB_DATA_DEB}
 			[[ "$$g" != "basic" ]] || g_suffix=; \
 			echo y-xkb-$${f_basename}$${g_suffix}.keylayout; \
 			mv tmp/$${f_basename}$${g_suffix}.keylayout y-xkb-$${f_basename}$${g_suffix}.keylayout; \
+			sed -i "s/id=\"-1337\"/id=\"$${id}\"/" y-xkb-$${f_basename}$${g_suffix}.keylayout; \
 			sed -i "s/name=\"[^\"]\+\"/name=\"ysoftwareab xkb $${f_basename}$${g_suffix} id=$${id}\"/" y-xkb-$${f_basename}$${g_suffix}.keylayout; \
 			id=$$((id+1)); \
-			sed -i "s/id=\"-1337\"/id=\"$${id}\"/" y-xkb-$${f_basename}$${g_suffix}.keylayout; \
 		done; \
 	done ) 2>>Makefile.log
 	patch --forward y-xkb-ro.keylayout < macos-emacs-bindings-ro-se.patch
