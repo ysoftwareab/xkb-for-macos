@@ -25,10 +25,14 @@ sudo rm -rf /Library/Keyboard\ Layouts
 sudo git clone https://github.com/ysoftwareab/xkb-for-macos.git /Library/Keyboard\ Layouts
 ```
 
-If you want to avoid the nuke-and-reinstall, copy the layouts you want instead:
+If you want to avoid the nuke-and-reinstall, copy the layouts you want
+(or build and copy the self-contained `.bundle`):
 
 ```
-sudo cp y-xkb-se.keylayout /Library/Keyboard\ Layouts/
+sudo cp y-xkb-se.keylayout y-xkb-se.icns /Library/Keyboard\ Layouts/
+# or install all y-xkb-* layouts as a single macOS bundle:
+make bundle
+sudo cp -R ysoftwareab-xkb.bundle /Library/Keyboard\ Layouts/
 ```
 
 Note that the numeric `id` of each layout is hashed deterministically from

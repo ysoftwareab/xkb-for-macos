@@ -1,6 +1,7 @@
 XKB_VSN=2.42-1ubuntu1
 XKB_DATA_DEB=xkb-data_${XKB_VSN}_all.deb
 XKB_DATA_URL=http://ports.ubuntu.com/pool/main/x/xkeyboard-config/${XKB_DATA_DEB}
+BUNDLE=ysoftwareab-xkb.bundle
 
 all: ${XKB_DATA_DEB}
 	rm -rf data.tar.zst tmp Makefile.log y-xkb-*.keylayout y-xkb-*.icns
@@ -34,8 +35,32 @@ all: ${XKB_DATA_DEB}
 icons:
 	./generate-icons.sh
 
+bundle:
+	rm -rf ${BUNDLE}
+	mkdir -p ${BUNDLE}/Contents/Resources
+	printf '%s\n' \
+		'<?xml version="1.0" encoding="UTF-8"?>' \
+		'<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">' \
+		'<plist version="1.0">' \
+		'<dict>' \
+		'	<key>CFBundleIdentifier</key>' \
+		'	<string>se.ysoftwareab.xkb-for-macos</string>' \
+		'	<key>CFBundleName</key>' \
+		'	<string>ysoftwareab xkb</string>' \
+		'	<key>CFBundleVersion</key>' \
+		'	<string>${XKB_VSN}</string>' \
+		'	<key>CFBundleShortVersionString</key>' \
+		'	<string>${XKB_VSN}</string>' \
+		'	<key>CFBundleInfoDictionaryVersion</key>' \
+		'	<string>6.0</string>' \
+		'	<key>CFBundlePackageType</key>' \
+		'	<string>BNDL</string>' \
+		'</dict>' \
+		'</plist>' > ${BUNDLE}/Contents/Info.plist
+	cp -f y-xkb-*.keylayout y-xkb-*.icns ${BUNDLE}/Contents/Resources/
+
 ${XKB_DATA_DEB}:
 	curl -O ${XKB_DATA_URL}
 
 clean:
-	rm -rf usr/ etc/ tmp *.deb Makefile.log *.rej *.orig \#*
+	rm -rf usr/ etc/ tmp ${BUNDLE} *.deb Makefile.log *.rej *.orig \#*
