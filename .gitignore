@@ -1,4 +1,5 @@
 /*.deb
 /usr/
+/etc/
 /tmp/
 Makefile.log
