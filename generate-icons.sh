@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Generate macOS icns flags for each y-xkb-<cc>*.keylayout using flagcdn.com
+# Public-domain flag images -> padded square -> 16/32/128px -> iconutil.
+
+T=.opencode-icons-tmp
+mkdir -p "$T"
+trap 'rm -rf "$T" XX.iconset values.log' EXIT
+
+flags() {
+  # preserve Andrei's hand-crafted icons pending the new flag set
+  if [[ -f y-xkb-ro.icns ]]; then mv y-xkb-ro.icns old/y-xkb-ro-Andrei.icns; fi
+  if [[ -f y-xkb-se.icns ]]; then mv y-xkb-se.icns old/y-xkb-se-Andrei.icns; fi
+  :
+}
+flags
+
+for lay in y-xkb-*.keylayout; do
+  cc=${lay:6:2}
+  f=$T/$cc.padded.png
+  icns=$T/$cc.icns
+  case $cc in
+    pc) continue ;;
+    jv) cc=id ;;
+  esac
+  if [[ ! -f $icns ]]; then
+    [[ -f $T/$cc.png ]] || curl -fsS "https://flagcdn.com/w640/$cc.png" -o "$T/$cc.png"
+    cp "$T/$cc.png" "$f"
+    sips -p 640 640 --padColor FFFFFF "$f" >/dev/null
+    rm -rf XX.iconset && mkdir XX.iconset
+    sips -z 16 16 "$f" --out XX.iconset/icon_16x16.png >/dev/null
+    sips -z 32 32 "$f" --out XX.iconset/icon_16x16@2x.png >/dev/null
+    sips -z 128 128 "$f" --out XX.iconset/icon_128x128.png >/dev/null
+    iconutil -c icns XX.iconset -o "$icns"
+  fi
+  cp -f "$icns" "${lay%.keylayout}.icns"
+done
